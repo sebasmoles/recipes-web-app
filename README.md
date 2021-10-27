@@ -1,4 +1,4 @@
-# recipes-web-app
+# Recipes Web App
 
 ## Project setup
 ```
