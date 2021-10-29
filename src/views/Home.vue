@@ -1,11 +1,13 @@
 <template>
-  <div class="mt-20">
-    Hi, I am just testing from home
-  </div>
+    <Recipes />
 </template>
 
 <script>
+  import Recipes from '../components/Recipes.vue';
   export default {
-    name: "Home"
+    name: "Home",
+    components: {
+      Recipes
+    }
   };
 </script>
