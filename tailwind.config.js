@@ -34,6 +34,25 @@ module.exports = {
       '2xl-m': '1536px'
       // => @media (min-width: 1536px) { ... }
     },
+    maxWidth: {
+      '4xl': '56rem',
+      '3xl': '48rem',
+      '2xl': '42rem',
+      'xl': '36rem',
+      'lg': '32rem',
+      'md': '28rem',
+      'sm': '24rem',
+      'xs': '20rem',
+      '2xs': '17rem',
+      '3xs': '15rem',
+      'full': '100%'
+     },
+     height: {
+      xl: '28rem',
+      lg: '26rem',
+      md: '22rem',
+      sm: '6rem'
+     },
     container: false
   },
   variants: {
