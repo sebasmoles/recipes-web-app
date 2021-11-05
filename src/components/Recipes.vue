@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-between flex-wrap mt-20 sm:justify-center">
+    <div class="flex justify-between flex-wrap mt-10 sm:justify-center">
         <div v-for="test in tests" :key="test" class="flex flex-col h-xl lg:h-lg sm:h-xl xs:h-lg max-w-xs mb-10 shadow-lg rounded flex-auto lg:max-w-2xs sm:max-w-full">
             <img class="rounded-t object-cover" src="../assets/test-image.jpeg" alt="whatever">
             <div class="p-6 sm:flex sm:justify-center sm:items-center sm:flex-col">
