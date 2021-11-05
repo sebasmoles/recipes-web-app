@@ -1,11 +1,16 @@
 <template>
-    <div class="mt-20">
-         Hi, I am just saying hi from Add recipes page!
-    </div>
+    <RecipeForm />
 </template>
 
 <script>
+    import RecipeForm from '../components/RecipeForm.vue'
     export default {
-        name: "AddRecipe"
+        name: "AddRecipe",
+        components: {
+            RecipeForm
+        },
+        mounted () {
+            window.scrollTo(0, 0)
+        }
     };
 </script>

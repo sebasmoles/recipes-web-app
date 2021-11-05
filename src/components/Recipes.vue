@@ -4,8 +4,8 @@
             <img class="rounded-t object-cover" src="../assets/test-image.jpeg" alt="whatever">
             <div class="p-6 sm:flex sm:justify-center sm:items-center sm:flex-col">
                 <h3 class="font-bold text-2xl mb-4">Recipe example</h3>
-                <p class="mb-5 sm:text-center h-sm">Description of the recipe, very delicious one nad i am happy witgh this reccipe for real </p>
-                <button class="rounded p-2 border-blue-600 border-2 font-semibold hover:bg-blue-600 hover:text-white">View this recipe</button>
+                <p class="mb-5 text-lg sm:text-center h-sm">Description of the recipe, very delicious one nad i am happy witgh this reccipe for real </p>
+                <button @click="$router.push('recipe')" class="rounded p-2 text-lg border-blue-600 border-2 font-semibold hover:bg-blue-600 hover:text-white">View this recipe</button>
             </div>
         </div>
     </div>
@@ -21,7 +21,12 @@
                     2,
                     3,
                     4,
-                    5
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10
                 ]
             }
         }
