@@ -5,7 +5,7 @@
             <span class="text-xl lg:text-base">the best recipe website</span> 
         </div>
         
-        <button v-show="!isHidden" @click="toRecipeForm" class="bg-blue-600 text-white rounded p-4 hover:bg-blue-500 text-2xl lg:text-xl lg:p-3 sm:p-2 xs:text-base">add recipe</button>
+        <button v-show="!isHidden" @click="toAddRecipe" class="bg-blue-600 text-white rounded p-4 hover:bg-blue-500 text-2xl lg:text-xl lg:p-3 sm:p-2 xs:text-base">add recipe</button>
     </header>
 </template>
 
@@ -18,14 +18,22 @@
             }
         },
         methods: {
-            toRecipeForm () {
+            toAddRecipe () {
                 this.$router.push('add-recipe');
-                this.isHidden = true;
             },
             toHomePage () {
                 this.$router.push('/');
-                this.isHidden = false;
             }
-        }
+        },
+        watch: {
+            $route: function() {
+                // Check if given route is true, if it is then hide nav button 
+                if (this.$route.path === "/add-recipe") {
+                    this.isHidden = true;
+                    } else  {
+                    this.isHidden = false;
+                }
+            }
+        }        
     }
 </script>
