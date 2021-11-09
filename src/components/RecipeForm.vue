@@ -3,6 +3,7 @@
         <form action="">
             <label class="text-lg" for="title">Title</label><br>
             <input class="shadow border rounded my-3" type="text" id="title" name="title"><br>
+            
             <label class="text-lg" for="description">Description</label><br>
             <input class="shadow border rounded my-3" type="text" id="description" name="description"><br>
 
