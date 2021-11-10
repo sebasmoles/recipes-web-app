@@ -28,7 +28,7 @@
 
             <div class="mb-4">
               <label class="block text-lg" for="">Image</label>
-              <input class="block mt-4" type="file" accept="image/*" id="image" name="image">
+              <input class="block w-64 mt-4 text-gray-400" type="file" accept="image/*" id="image" name="image">
             </div>
               
             <button class="bg-blue-600 p-4 my-4 rounded text-white hover:bg-blue-500 text-2xl lg:text-xl lg:p-3 sm:p-2 xs:text-base">add recipe</button>
@@ -41,3 +41,19 @@
     name: "RecipeForm"
   };
 </script>
+
+<style scoped>
+  ::file-selector-button {
+    background: white;
+    border: 1px solid rgba(229, 231, 235);
+    outline: none;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    padding: 0.50rem 1rem;
+    margin-right: 1rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  }
+  ::file-selector-button:hover {
+    background: #ebebeb ;
+  }
+</style>
