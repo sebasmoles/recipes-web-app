@@ -19,7 +19,10 @@
             <div class="mb-4">
               <label class="block text-lg">Ingredients:</label>
               <label class="block text-gray-400">e.g. 1/2 cup of white rice</label>
-              <input class="block shadow border rounded mt-4 p-2 w-6/12 focus:bg-yellow-100" type="text">
+              <div v-for="(ingredient, index) in ingredients" :key="index">
+                 <input v-model="ingredient.value" class="shadow border rounded mt-4 mr-4 p-2 w-6/12 focus:bg-yellow-100" type="text"><button v-if="index > 0" @click="deleteIngredient(index)" type="button"><i class="fas fa-minus-circle text-red-500"></i></button>
+              </div>
+              <button @click="addIngredient" class="mt-4 underline hover:text-blue-500" type="button"><i class="fas fa-plus-circle text-blue-500"></i> Add ingredient</button>
             </div>
 
             <div class="mb-4">
@@ -41,7 +44,26 @@
 
 <script>
   export default {
-    name: "RecipeForm"
+    name: "RecipeForm",
+    data() {
+      return {
+        ingredients: [{ value: '' }]
+      }
+    },
+    methods: {
+      addIngredient() {
+        let oneIsEmpty = this.ingredients.find(element => element.value === '')
+
+        if(oneIsEmpty) {
+          alert('Please type an ingredient. No empty spaces allowed');
+        } else {
+          this.ingredients.push({ value: '' });
+        }
+      },
+      deleteIngredient(index) {
+        this.ingredients.splice(index, 1);
+      }
+    }
   };
 </script>
 
