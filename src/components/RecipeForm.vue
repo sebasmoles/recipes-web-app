@@ -28,7 +28,10 @@
             <div class="mb-4">
               <label class="block text-lg">Instructions:</label>
               <label class="block text-gray-400">e.g. Add rice to a big bowl</label>
-              <input class="block shadow border rounded mt-4 p-2 w-full focus:bg-yellow-100" type="text">
+              <div v-for="(instruction, index) in instructions" :key="index"> 
+                <input v-model="instruction.value" class="shadow border rounded mt-4 mr-4 p-2 w-9/12 focus:bg-yellow-100" type="text"><button v-if="index > 0" @click="deleteInstruction(index)" type="button"><i class="fas fa-minus-circle text-red-500"></i></button>
+              </div>
+              <button @click="addInstruction" class="mt-4 underline hover:text-blue-500" type="button"><i class="fas fa-plus-circle text-blue-500"></i> Add instruction</button>
             </div>
 
             <div class="mb-4">
@@ -47,7 +50,8 @@
     name: "RecipeForm",
     data() {
       return {
-        ingredients: [{ value: '' }]
+        ingredients: [{ value: '' }],
+        instructions: [{ value: ''}],
       }
     },
     methods: {
@@ -62,7 +66,19 @@
       },
       deleteIngredient(index) {
         this.ingredients.splice(index, 1);
-      }
+      },
+      addInstruction() {
+        let oneIsEmpty = this.instructions.find(element => element.value === '')
+
+        if(oneIsEmpty) {
+          alert('Please type an instruction. No empty spaces allowed');
+        } else {
+          this.instructions.push({ value: '' });
+        }
+      },
+      deleteInstruction(index) {
+        this.instructions.splice(index, 1);
+      },
     }
   };
 </script>
