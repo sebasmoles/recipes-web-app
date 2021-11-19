@@ -22,7 +22,7 @@
               <div v-for="(ingredient, index) in ingredients" :key="index">
                  <input v-model="ingredient.value" class="shadow border rounded mt-4 mr-4 p-2 w-6/12 focus:bg-yellow-100" type="text"><button v-if="index > 0" @click="deleteIngredient(index)" type="button"><i class="fas fa-minus-circle text-red-500"></i></button>
               </div>
-              <button @click="addIngredient" class="mt-4 underline hover:text-blue-500" type="button"><i class="fas fa-plus-circle text-blue-500"></i> Add ingredient</button>
+              <button @click="addIngredient" class="mt-4 underline text-blue-500" type="button"><i class="fas fa-plus-circle"></i> Add ingredient</button>
             </div>
 
             <div class="mb-4">
@@ -31,13 +31,16 @@
               <div v-for="(instruction, index) in instructions" :key="index"> 
                 <input v-model="instruction.value" class="shadow border rounded mt-4 mr-4 p-2 w-9/12 focus:bg-yellow-100" type="text"><button v-if="index > 0" @click="deleteInstruction(index)" type="button"><i class="fas fa-minus-circle text-red-500"></i></button>
               </div>
-              <button @click="addInstruction" class="mt-4 underline hover:text-blue-500" type="button"><i class="fas fa-plus-circle text-blue-500"></i> Add instruction</button>
+              <button @click="addInstruction" class="mt-4 underline text-blue-500" type="button"><i class="fas fa-plus-circle"></i> Add instruction</button>
             </div>
 
             <div class="mb-4">
               <label class="block text-lg">Notes: (Optional)</label>
               <label class="block text-gray-400">e.g. After cooked, you can store the rice in the fridge</label>
-              <input class="block shadow border rounded mt-4 p-2 w-full focus:bg-yellow-100" type="text">
+              <div v-for="(note, index) in notes" :key="index">
+                <input v-model="note.value" class="shadow border rounded mt-4 mr-4 p-2 w-9/12 focus:bg-yellow-100" type="text"><button v-if="index > 0" @click="deleteNote(index)" type="button"><i class="fas fa-minus-circle text-red-500"></i></button>
+              </div>
+               <button @click="addNote" class="mt-4 underline text-blue-500" type="button"><i class="fas fa-plus-circle"></i> Add note </button>
             </div>
   
             <button class="bg-blue-600 p-4 my-4 rounded text-white hover:bg-blue-500 text-2xl lg:text-xl lg:p-3 sm:p-2 xs:text-base">add recipe</button>
@@ -51,7 +54,8 @@
     data() {
       return {
         ingredients: [{ value: '' }],
-        instructions: [{ value: ''}],
+        instructions: [{ value: '' }],
+        notes: [{ value: '' }]
       }
     },
     methods: {
@@ -79,6 +83,18 @@
       deleteInstruction(index) {
         this.instructions.splice(index, 1);
       },
+      addNote() {
+        let oneIsEmpty = this.notes.find(element => element.value === '')
+
+        if(oneIsEmpty) {
+          alert('Please type a note. No empty spaces allowed');
+        } else {
+          this.notes.push({ value: '' });
+        }
+      },
+      deleteNote(index) {
+        this.notes.splice(index, 1);
+      }
     }
   };
 </script>
