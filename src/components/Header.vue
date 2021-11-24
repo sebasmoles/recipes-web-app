@@ -6,7 +6,7 @@
                 <span class="text-xl lg:text-base">the best recipe website</span> 
             </div>
             
-            <button v-show="!isHidden" @click="toAddRecipe" class="bg-blue-600 text-white rounded p-4 hover:bg-blue-500 text-2xl lg:text-xl lg:p-3 sm:p-2 xs:text-base">add recipe</button>
+            <button v-show="!isHidden" @click="toAddRecipe" class="bg-blue-600 text-white rounded p-4 hover:bg-blue-500 text-2xl lg:text-xl lg:p-3 sm:p-2 xs:text-base">Add recipe</button>
         </div>
     </header>
 </template>
