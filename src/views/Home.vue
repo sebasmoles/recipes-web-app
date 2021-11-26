@@ -1,5 +1,11 @@
 <template>
-    <Recipes />
+    <p v-if="errorMessage"> {{errorMessage}} </p>
+    <main v-if="!loading"> 
+      <Recipes :recipes="recipes"/>
+    </main>
+    <main v-else class="flex justify-center">
+      <img :src="loadingImage" />
+    </main>
 </template>
 
 <script>
@@ -9,19 +15,29 @@
     components: {
       Recipes
     },
+    data () {
+      return {
+        recipes: [],
+        loading: true,
+        loadingImage: require('../assets/loading.gif'),
+        errorMessage: ''
+      }
+    },
     methods: {
       async fetchRecipes() {
         const res =  await fetch('api/recipes');
         if(res.ok) { 
           const data = await res.json();
-          console.log(data);
-          // return data;
-        }   
+          return data;
+        } else {
+            this.errorMessage = "Something went wrong with the server";
+        }  
       }      
     },
     async created() {
-       await this.fetchRecipes();
-      // this.tasks.length === 0 ? (this.errorMessage = 'There are no tasks to show, please add one') : this.tasks;
+       this.recipes = await this.fetchRecipes();
+       this.recipes.length === 0 ? (this.errorMessage = 'There are no recipes to show, please add one') : this.recipes;
+       this.loading = false;
     }
   }
 </script>
