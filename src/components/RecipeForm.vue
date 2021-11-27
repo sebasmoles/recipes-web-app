@@ -2,6 +2,11 @@
     <div class="mt-10">
         <form action="">
             <div class="mb-4">
+              <label class="block text-lg" for="author">Author:</label>
+              <input class="block shadow border rounded mt-4 p-2 w-full focus:bg-yellow-100" type="text" id="author" name="author" autocomplete="off" required>
+            </div>
+
+            <div class="mb-4">
               <label class="block text-lg" for="title">Recipe title:</label>
               <input class="block shadow border rounded mt-4 p-2 w-full focus:bg-yellow-100" type="text" id="title" name="title" autocomplete="off" required>
             </div>
