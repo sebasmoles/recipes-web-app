@@ -1,19 +1,19 @@
 <template>
     <div class="mt-10">
-        <form action="">
+        <form @submit="onSubmit">
             <div class="mb-4">
               <label class="block text-lg" for="author">Author:</label>
-              <input class="block shadow border rounded mt-4 p-2 w-full focus:bg-yellow-100" type="text" id="author" name="author" autocomplete="off" required>
+              <input class="block shadow border rounded mt-4 p-2 w-full focus:bg-yellow-100" type="text" v-model="author" id="author" name="author" autocomplete="off" required>
             </div>
 
             <div class="mb-4">
               <label class="block text-lg" for="title">Recipe title:</label>
-              <input class="block shadow border rounded mt-4 p-2 w-full focus:bg-yellow-100" type="text" id="title" name="title" autocomplete="off" required>
+              <input class="block shadow border rounded mt-4 p-2 w-full focus:bg-yellow-100" type="text" v-model="title" id="title" name="title" autocomplete="off" required>
             </div>
 
             <div class="mb-4">
               <label class="block text-lg" for="description">Description:</label>
-              <input class="block shadow border rounded mt-4 p-2 w-full focus:bg-yellow-100" type="text" id="description" name="description" autocomplete="off" required>
+              <input class="block shadow border rounded mt-4 p-2 w-full focus:bg-yellow-100" type="text" v-model="description" id="description" name="description" autocomplete="off" required>
             </div>
 
             <div class="mb-16">
@@ -48,7 +48,7 @@
                <button @click="addNote" class="mt-4 underline text-blue-500" type="button"><i class="fas fa-plus-circle text-blue-800"></i> Add note</button>
             </div>
   
-            <button class="bg-blue-600 p-4 mt-4 mb-12 rounded text-white hover:bg-blue-500 text-2xl lg:text-xl lg:p-3 sm:p-2 xs:text-base">Add recipe</button>
+            <button class="bg-blue-600 p-4 mt-4 mb-12 rounded text-white hover:bg-blue-500 text-2xl lg:text-xl lg:p-3 sm:p-2 xs:text-base" type="submit">Add recipe</button>
         </form>
     </div>
 </template>
@@ -58,6 +58,9 @@
     name: "RecipeForm",
     data() {
       return {
+        author: '',
+        title: '',
+        description: '',
         ingredients: [{ value: '' }],
         instructions: [{ value: '' }],
         notes: [{ value: '' }],
@@ -108,6 +111,32 @@
         } else {
           this.isValid = false;
         }
+      },
+      async onSubmit(e) {
+        e.preventDefault();
+        
+        const newRecipe = {
+          id: 4,
+          author: this.author,
+          title: this.title,
+          description: this.description,
+          ingredients: this.ingredients,
+          instructions: this.instructions,
+          notes: this.notes
+        }
+
+        const res = await fetch('api/recipes',  {
+            method: 'POST',
+            headers: {
+              'Content-type': 'application/json'
+            },
+            body: JSON.stringify(newRecipe)
+        });
+        if (res.ok) {
+            alert('Recipe added successfully');
+        } else {
+            alert('Error adding recipe');
+        }        
       }
     }
   };
