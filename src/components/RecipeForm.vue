@@ -25,7 +25,7 @@
               <label class="block text-lg">Ingredients:</label>
               <label class="block text-gray-400">e.g. 1/2 cup of white rice</label>
               <div v-for="(ingredient, index) in ingredients" :key="index">
-                 <input v-model="ingredient.value" class="shadow border rounded mt-4 mr-4 p-2 w-6/12 focus:bg-yellow-100" type="text" required><button v-if="index > 0" @click="deleteIngredient(index)" type="button"><i class="fas fa-minus-circle text-red-500"></i></button>
+                 <input v-model="ingredients[index]" class="shadow border rounded mt-4 mr-4 p-2 w-6/12 focus:bg-yellow-100" type="text" required><button v-if="index > 0" @click="deleteIngredient(index)" type="button"><i class="fas fa-minus-circle text-red-500"></i></button>
               </div>
               <button @click="addIngredient" class="mt-4 underline text-blue-500" type="button"><i class="fas fa-plus-circle text-blue-800"></i> Add ingredient</button>
             </div>
@@ -34,16 +34,16 @@
               <label class="block text-lg">Instructions:</label>
               <label class="block text-gray-400">e.g. Add rice to a big bowl</label>
               <div v-for="(instruction, index) in instructions" :key="index"> 
-                <input v-model="instruction.value" class="shadow border rounded mt-4 mr-4 p-2 w-9/12 focus:bg-yellow-100" type="text" required><button v-if="index > 0" @click="deleteInstruction(index)" type="button"><i class="fas fa-minus-circle text-red-500"></i></button>
+                <input v-model="instructions[index]" class="shadow border rounded mt-4 mr-4 p-2 w-9/12 focus:bg-yellow-100" type="text" required><button v-if="index > 0" @click="deleteInstruction(index)" type="button"><i class="fas fa-minus-circle text-red-500"></i></button>
               </div>
               <button @click="addInstruction" class="mt-4 underline text-blue-500" type="button"><i class="fas fa-plus-circle text-blue-800"></i> Add instruction</button>
             </div>
 
             <div class="mb-4">
-              <label class="block text-lg">Notes: (Optional)</label>
+              <label class="block text-lg">Notes:</label>
               <label class="block text-gray-400">e.g. After cooked, you can store the rice in the fridge</label>
               <div v-for="(note, index) in notes" :key="index">
-                <input v-model="note.value" class="shadow border rounded mt-4 mr-4 p-2 w-9/12 focus:bg-yellow-100" type="text"><button v-if="index > 0" @click="deleteNote(index)" type="button"><i class="fas fa-minus-circle text-red-500"></i></button>
+                <input v-model="notes[index]" class="shadow border rounded mt-4 mr-4 p-2 w-9/12 focus:bg-yellow-100" type="text" required><button v-if="index > 0" @click="deleteNote(index)" type="button"><i class="fas fa-minus-circle text-red-500"></i></button>
               </div>
                <button @click="addNote" class="mt-4 underline text-blue-500" type="button"><i class="fas fa-plus-circle text-blue-800"></i> Add note</button>
             </div>
@@ -61,44 +61,44 @@
         author: '',
         title: '',
         description: '',
-        ingredients: [{ value: '' }],
-        instructions: [{ value: '' }],
-        notes: [{ value: '' }],
+        ingredients: [''],
+        instructions: [''],
+        notes: [''],
         isValid: false
       }
     },
     methods: {
       addIngredient() {
-        let oneIsEmpty = this.ingredients.find(element => element.value === '')
-
+        let oneIsEmpty = this.ingredients.includes('');
+        
         if(oneIsEmpty) {
           alert('Please type an ingredient. No empty spaces allowed');
         } else {
-          this.ingredients.push({ value: '' });
+          this.ingredients.push('');
         }
       },
       deleteIngredient(index) {
         this.ingredients.splice(index, 1);
       },
       addInstruction() {
-        let oneIsEmpty = this.instructions.find(element => element.value === '')
+        let oneIsEmpty = this.instructions.includes('');
 
         if(oneIsEmpty) {
           alert('Please type an instruction. No empty spaces allowed');
         } else {
-          this.instructions.push({ value: '' });
+          this.instructions.push('');
         }
       },
       deleteInstruction(index) {
         this.instructions.splice(index, 1);
       },
       addNote() {
-        let oneIsEmpty = this.notes.find(element => element.value === '')
+        let oneIsEmpty = this.notes.includes('');
 
         if(oneIsEmpty) {
           alert('Please type a note. No empty spaces allowed');
         } else {
-          this.notes.push({ value: '' });
+          this.notes.push('');
         }
       },
       deleteNote(index) {
@@ -106,6 +106,7 @@
       },
       inputValidation() {
         let validation = this.$refs.image.checkValidity();
+
         if(validation) {
           this.isValid = true;
         } else {
@@ -116,7 +117,7 @@
         e.preventDefault();
         
         const newRecipe = {
-          id: 4,
+          id: 5,
           author: this.author,
           title: this.title,
           description: this.description,
