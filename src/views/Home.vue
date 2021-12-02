@@ -30,12 +30,14 @@
           const data = await res.json();
           return data;
         } else {
-            this.errorMessage = "Something went wrong with the server";
+            this.errorMessage = "Something went wrong with the server, try again later.";
+            this.loading = false;
         }  
       }      
     },
     async created() {
        this.recipes = await this.fetchRecipes();
+       this.recipes = this.recipes.reverse();
        this.recipes.length === 0 ? (this.errorMessage = 'There are no recipes to show, please add one.') : this.recipes;
        this.loading = false;
     }
