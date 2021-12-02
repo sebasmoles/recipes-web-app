@@ -1,9 +1,9 @@
 <template>
-    <p v-if="errorMessage"> {{errorMessage}} </p>
+    <p v-if="errorMessage" class="text-xl mt-10"> {{errorMessage}} </p>
     <main v-if="!loading"> 
       <Recipes :recipes="recipes"/>
     </main>
-    <main v-else class="flex justify-center">
+    <main v-else class="flex justify-center mt-10">
       <img :src="loadingImage" />
     </main>
 </template>
@@ -36,7 +36,7 @@
     },
     async created() {
        this.recipes = await this.fetchRecipes();
-       this.recipes.length === 0 ? (this.errorMessage = 'There are no recipes to show, please add one') : this.recipes;
+       this.recipes.length === 0 ? (this.errorMessage = 'There are no recipes to show, please add one.') : this.recipes;
        this.loading = false;
     }
   }

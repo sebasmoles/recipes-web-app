@@ -52,7 +52,7 @@
             <button class="bg-blue-600 p-4 mt-4 mb-12 rounded text-white hover:bg-blue-500 text-2xl lg:text-xl lg:p-3 sm:p-2 xs:text-base" type="submit">Add recipe</button>
         </form>
       </main>
-      <main v-else class="flex justify-center">
+      <main v-else class="flex justify-center mt-10">
         <img :src="loadingImage" />
       </main>
     </div>
