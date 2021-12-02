@@ -117,7 +117,6 @@
         e.preventDefault();
         
         const newRecipe = {
-          id: 5,
           author: this.author,
           title: this.title,
           description: this.description,
