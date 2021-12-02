@@ -1,5 +1,6 @@
 <template>
     <div class="mt-10">
+      <main v-if="!loading">
         <form @submit="onSubmit">
             <div class="mb-4">
               <label class="block text-lg" for="author">Author:</label>
@@ -50,6 +51,10 @@
   
             <button class="bg-blue-600 p-4 mt-4 mb-12 rounded text-white hover:bg-blue-500 text-2xl lg:text-xl lg:p-3 sm:p-2 xs:text-base" type="submit">Add recipe</button>
         </form>
+      </main>
+      <main v-else class="flex justify-center">
+        <img :src="loadingImage" />
+      </main>
     </div>
 </template>
 
@@ -64,7 +69,9 @@
         ingredients: [''],
         instructions: [''],
         notes: [''],
-        isValid: false
+        isValid: false,
+        loading: false,
+        loadingImage: require('../assets/loading.gif')
       }
     },
     methods: {
@@ -115,6 +122,8 @@
       },
       async onSubmit(e) {
         e.preventDefault();
+
+        this.loading = true;
         
         const newRecipe = {
           author: this.author,
@@ -132,10 +141,13 @@
             },
             body: JSON.stringify(newRecipe)
         });
+
         if (res.ok) {
             alert('Recipe added successfully');
+            this.$router.push('/'); 
         } else {
-            alert('Error adding recipe');
+            alert('Error adding recipe, try again later');
+            this.$router.go(0)
         }        
       }
     }
