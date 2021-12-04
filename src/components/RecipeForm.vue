@@ -7,7 +7,7 @@
               <label class="block text-lg" for="title">Recipe title:</label>
               <input class="block shadow border rounded mt-4 p-2 w-full focus:bg-yellow-100" type="text" v-model="title" id="title" name="title" autocomplete="off" required>
             </div>
-            
+
               <label class="block text-lg" for="author">Author:</label>
               <input class="block shadow border rounded mt-4 p-2 w-full focus:bg-yellow-100" type="text" v-model="author" id="author" name="author" autocomplete="off" required>
             </div>
@@ -26,27 +26,27 @@
               <label class="block text-lg">Ingredients:</label>
               <label class="block text-gray-400">e.g. 1/2 cup of white rice</label>
               <div v-for="(ingredient, index) in ingredients" :key="index">
-                 <input v-model="ingredients[index]" class="shadow border rounded mt-4 mr-4 p-2 w-6/12 focus:bg-yellow-100" type="text" required><button v-if="index > 0" @click="deleteIngredient(index)" type="button"><i class="fas fa-minus-circle text-red-500"></i></button>
+                 <input v-model="ingredients[index]" class="shadow border rounded mt-4 mr-4 p-2 w-6/12 focus:bg-yellow-100" type="text" required><button v-if="index > 0" @click="deleteIngredient(index)" type="button"><i class="fas fa-minus-circle text-red-500 text-lg"></i></button>
               </div>
-              <button @click="addIngredient" class="mt-4 underline text-blue-500" type="button"><i class="fas fa-plus-circle text-blue-800"></i> Add ingredient</button>
+              <button @click="addIngredient" class="mt-4 underline text-blue-500 text-lg" type="button"><i class="fas fa-plus-circle text-blue-800"></i> Add ingredient</button>
             </div>
 
             <div class="mb-4">
               <label class="block text-lg">Instructions:</label>
               <label class="block text-gray-400">e.g. Add rice to a big bowl</label>
               <div v-for="(instruction, index) in instructions" :key="index"> 
-                <input v-model="instructions[index]" class="shadow border rounded mt-4 mr-4 p-2 w-9/12 focus:bg-yellow-100" type="text" required><button v-if="index > 0" @click="deleteInstruction(index)" type="button"><i class="fas fa-minus-circle text-red-500"></i></button>
+                <input v-model="instructions[index]" class="shadow border rounded mt-4 mr-4 p-2 w-9/12 focus:bg-yellow-100" type="text" required><button v-if="index > 0" @click="deleteInstruction(index)" type="button"><i class="fas fa-minus-circle text-red-500 text-lg"></i></button>
               </div>
-              <button @click="addInstruction" class="mt-4 underline text-blue-500" type="button"><i class="fas fa-plus-circle text-blue-800"></i> Add instruction</button>
+              <button @click="addInstruction" class="mt-4 underline text-blue-500 text-lg" type="button"><i class="fas fa-plus-circle text-blue-800"></i> Add instruction</button>
             </div>
 
             <div class="mb-4">
               <label class="block text-lg">Notes:</label>
               <label class="block text-gray-400">e.g. After cooked, you can store the rice in the fridge</label>
               <div v-for="(note, index) in notes" :key="index">
-                <input v-model="notes[index]" class="shadow border rounded mt-4 mr-4 p-2 w-9/12 focus:bg-yellow-100" type="text" required><button v-if="index > 0" @click="deleteNote(index)" type="button"><i class="fas fa-minus-circle text-red-500"></i></button>
+                <input v-model="notes[index]" class="shadow border rounded mt-4 mr-4 p-2 w-9/12 focus:bg-yellow-100" type="text" required><button v-if="index > 0" @click="deleteNote(index)" type="button"><i class="fas fa-minus-circle text-red-500 text-lg"></i></button>
               </div>
-               <button @click="addNote" class="mt-4 underline text-blue-500" type="button"><i class="fas fa-plus-circle text-blue-800"></i> Add note</button>
+               <button @click="addNote" class="mt-4 underline text-blue-500 text-lg" type="button"><i class="fas fa-plus-circle text-blue-800"></i> Add note</button>
             </div>
   
             <button class="bg-blue-600 p-4 mt-4 mb-12 rounded text-white hover:bg-blue-500 text-2xl lg:text-xl lg:p-3 sm:p-2 xs:text-base" type="submit">Add recipe</button>
