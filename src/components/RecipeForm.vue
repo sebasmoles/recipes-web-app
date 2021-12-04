@@ -3,13 +3,13 @@
       <main v-if="!loading">
         <form @submit="onSubmit">
             <div class="mb-4">
-              <label class="block text-lg" for="author">Author:</label>
-              <input class="block shadow border rounded mt-4 p-2 w-full focus:bg-yellow-100" type="text" v-model="author" id="author" name="author" autocomplete="off" required>
-            </div>
-
             <div class="mb-4">
               <label class="block text-lg" for="title">Recipe title:</label>
               <input class="block shadow border rounded mt-4 p-2 w-full focus:bg-yellow-100" type="text" v-model="title" id="title" name="title" autocomplete="off" required>
+            </div>
+            
+              <label class="block text-lg" for="author">Author:</label>
+              <input class="block shadow border rounded mt-4 p-2 w-full focus:bg-yellow-100" type="text" v-model="author" id="author" name="author" autocomplete="off" required>
             </div>
 
             <div class="mb-4">
