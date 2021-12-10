@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-10">
+    <div class="mt-10 overflow-hidden">
 
         <p v-if="errorMessage" class="text-xl mt-10"> {{errorMessage}} </p>
 
