@@ -51,7 +51,9 @@ module.exports = {
       xl: '28rem',
       lg: '26rem',
       md: '22rem',
-      sm: '6rem'
+      sm: '6rem',
+      xs: '4.5rem',
+      full: '100%'
      },
     container: false
   },
