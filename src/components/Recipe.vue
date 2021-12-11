@@ -8,27 +8,27 @@
                 <h1 class="text-3xl sm:text-2xl mb-5 font-medium"> {{ recipe.title }} </h1>
                 <h2 class="text-xl sm:text-base mb-5 text-gray-500">By {{ recipe.author }} </h2>
                 <img class="mb-10 max-w-full rounded" src="../assets/test-image.jpeg" alt="Recipe Image">
-                <p class="text-xl sm:text-base"> {{ recipe.description }} </p>            
+                <p class="text-xl sm:text-base" style="line-height: 2"> {{ recipe.description }} </p>            
             </div>
 
             <div class="mb-10">
                 <h3 class="text-2xl sm:text-xl mb-7 font-medium border-b border-gray-300 pb-3">Ingredients</h3>
-                <ul class="text-xl sm:text-base list-disc list-inside leading-loose">
-                    <li v-for="(ingredient, index) in recipe.ingredients" :key="index" class="mb-5"> {{ ingredient }} </li>
+                <ul class="text-xl sm:text-base list-disc list-inside">
+                    <li v-for="(ingredient, index) in recipe.ingredients" :key="index" class="mb-5 leading-loose"> {{ ingredient }} </li>
                 </ul>
             </div>
             
             <div class="mb-10">
                 <h3 class="text-2xl sm:text-xl mb-7 font-medium border-b border-gray-300 pb-3">Instructions</h3>
-                <ol class="text-xl sm:text-base list-decimal list-inside leading-loose">
-                    <li v-for="(instruction, index) in recipe.instructions" :key="index" class="mb-10"> {{ instruction }} </li>
+                <ol class="text-xl sm:text-base list-decimal list-inside">
+                    <li v-for="(instruction, index) in recipe.instructions" :key="index" class="mb-10 leading-loose"> {{ instruction }} </li>
                 </ol>
             </div>
             
             <div class="mb-10">
                 <h3 class="text-2xl sm:text-xl mb-7 font-medium border-b border-gray-300 pb-3">Notes</h3>
-                <ul class="text-xl sm:text-base list-disc list-inside leading-loose">
-                    <li v-for="(note, index) in recipe.notes" :key="index" class="mb-10"> {{ note }} </li>
+                <ul class="text-xl sm:text-base list-disc list-inside">
+                    <li v-for="(note, index) in recipe.notes" :key="index" class="mb-10 leading-loose"> {{ note }} </li>
                 </ul>
             </div>
         </main>
