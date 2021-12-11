@@ -14,7 +14,7 @@
             <div class="mb-10">
                 <h3 class="text-2xl sm:text-xl mb-7 font-medium border-b border-gray-300 pb-3">Ingredients</h3>
                 <ul class="text-xl sm:text-base list-disc list-inside leading-loose">
-                    <li v-for="(ingredient, index) in recipe.ingredients" :key="index"> {{ ingredient }} </li>
+                    <li v-for="(ingredient, index) in recipe.ingredients" :key="index" class="mb-5"> {{ ingredient }} </li>
                 </ul>
             </div>
             
@@ -28,7 +28,7 @@
             <div class="mb-10">
                 <h3 class="text-2xl sm:text-xl mb-7 font-medium border-b border-gray-300 pb-3">Notes</h3>
                 <ul class="text-xl sm:text-base list-disc list-inside leading-loose">
-                    <li v-for="(note, index) in recipe.notes" :key="index"> {{ note }} </li>
+                    <li v-for="(note, index) in recipe.notes" :key="index" class="mb-10"> {{ note }} </li>
                 </ul>
             </div>
         </main>
