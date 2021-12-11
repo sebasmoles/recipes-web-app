@@ -15,7 +15,7 @@
 
                 <div class="mb-4">
                     <label class="block text-xl" for="description">Description:</label>
-                    <input class="block shadow border rounded mt-4 p-2 w-full focus:bg-yellow-100" type="text" v-model="description" id="description" name="description" autocomplete="off" required>
+                    <textarea class="block shadow border rounded mt-4 p-2 w-full focus:bg-yellow-100" rows="3" v-model="description" id="description" name="description" autocomplete="off" required></textarea>
                 </div>
 
                 <div class="mb-16">
