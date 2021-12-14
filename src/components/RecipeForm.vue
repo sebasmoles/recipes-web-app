@@ -50,7 +50,7 @@
                     <button @click="addNote" class="mt-4 underline text-blue-500 text-lg" type="button"><i class="fas fa-plus-circle text-blue-800"></i> Add note</button>
                 </div>
       
-                <button class="bg-blue-600 p-4 mt-10 mb-12 rounded text-white hover:bg-blue-500 text-2xl lg:text-xl lg:p-3 sm:p-2" type="submit">Add recipe</button>
+                <button class="bg-blue-600 p-4 mt-10 mb-12 rounded text-white hover:bg-blue-500 text-xl lg:p-3 sm:p-2" type="submit">Add recipe</button>
             </form>
         </main>
         <main v-else class="flex justify-center mt-10">
