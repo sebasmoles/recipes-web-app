@@ -53,7 +53,8 @@ module.exports = {
       md: '22rem',
       sm: '6rem',
       xs: '4.5rem',
-      full: '100%'
+      full: '100%',
+      screen: '60vh'
      },
     container: false
   },

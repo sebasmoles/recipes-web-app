@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import AddRecipe from "../views/AddRecipe.vue";
 import ViewRecipe from "../views/ViewRecipe.vue";
+import PageNotFound from "../views/PageNotFound.vue";
 
 
 const routes = [
@@ -19,6 +20,11 @@ const routes = [
     path: "/recipe/:id",
     name: "ViewRecipe",
     component: ViewRecipe
+  },
+  {
+    path: '/:catchAll(.*)', 
+    name: 'PageNotFound',
+    component: PageNotFound
   }
 ];
 
