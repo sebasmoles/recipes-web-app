@@ -2,7 +2,11 @@ module.exports = {
   purge: { content: ['./public/**/*.html', './src/**/*.vue'] },
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      width: {
+        inputs: '80%'
+      }
+    },
     screens: {
       // Desktop First
       '2xl': {'max': '1536px'},

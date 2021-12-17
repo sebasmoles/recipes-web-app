@@ -37,7 +37,7 @@
         methods: {
             async fetchRecipes() {
 
-                const res =  await fetch('api/recipes');
+                const res =  await fetch('https://recipes-api-project.herokuapp.com/recipes');
 
                 if(res.ok) { 
                     const data = await res.json();
