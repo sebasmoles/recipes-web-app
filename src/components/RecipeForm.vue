@@ -20,7 +20,7 @@
 
                 <div class="mb-16">
                     <label class="block text-xl" for="image">Image:</label>
-                    <input @change="inputValidation" class="w-60 mt-4 text-gray-400" type="file" accept="image/*" id="image" name="image" required ref="image"><i v-if="isValid" class="fas fa-check-circle text-green-500"></i>
+                    <input @change="imageUpload" class="w-60 mt-4 text-gray-400" type="file" accept="image/*" id="image" name="image" required ref="image"><i v-if="isValid" class="fas fa-check-circle text-green-500"></i>
                 </div>
 
                 <div class="mb-4">
@@ -67,6 +67,7 @@
       return {
         author: '',
         title: '',
+        image: '',
         description: '',
         ingredients: [''],
         instructions: [''],
@@ -113,7 +114,7 @@
       deleteNote(index) {
         this.notes.splice(index, 1);
       },
-      inputValidation() {
+      inputFileValidation() {
         let validation = this.$refs.image.checkValidity();
 
         if(validation) {
@@ -122,14 +123,38 @@
           this.isValid = false;
         }
       },
+      async imageUpload(event) {
+        this.inputFileValidation();
+
+        const file = event.target.files[0];
+
+        const { url } = await fetch('http://localhost:3000/s3Url').then(res => res.json());
+
+        await fetch(url, {
+            method: 'PUT',
+            headers: {
+              "Content-Type": "multipart/form-data"
+            },
+            body: file
+          })
+
+        this.image = url.split('?')[0];
+      },
       async onSubmit(e) {
         e.preventDefault();
 
+        // Check if the image was uploaded succesfully
+        if(this.image === '') {
+          this.isValid = false;
+          return alert('A problem has occurred while uploading the image, please try again later');
+        }
+
         this.loading = true;
-        
+
         const newRecipe = {
           author: this.author,
           title: this.title,
+          image: this.image,
           description: this.description,
           ingredients: this.ingredients,
           instructions: this.instructions,

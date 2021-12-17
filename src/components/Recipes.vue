@@ -5,8 +5,8 @@
         <main v-if="!loading"> 
             <div class="flex justify-between flex-wrap mt-10">
                 <!-- Cardbox -->
-                <div v-for="(recipe, index) in recipes" :key="index" class="flex flex-col flex-auto h-xl lg:h-lg sm:h-xl xs:h-lg max-w-xs mb-10 shadow-lg rounded lg:max-w-2xs sm:max-w-full overflow-hidden">
-                    <img class="rounded-t object-cover h-full" src="../assets/test-image.jpeg" alt="whatever">
+                <div v-for="(recipe, index) in recipes" :key="index" class="flex flex-col flex-auto max-w-xs mb-10 shadow-lg rounded lg:max-w-2xs sm:max-w-full overflow-hidden">
+                    <img class="rounded-t object-cover h-picture" :src="recipe.image" alt="Recipe Image">
                     <div class="p-6 sm:flex sm:items-center sm:flex-col">
                         <h3 class="font-bold text-xl mb-4 sm:text-center truncate w-60"> {{recipe.title}} </h3>
                         <p class="mb-5 sm:text-center h-xs ellipsis"> {{recipe.description}} </p>

@@ -54,7 +54,8 @@ module.exports = {
       sm: '6rem',
       xs: '4.5rem',
       full: '100%',
-      screen: '60vh'
+      screen: '60vh',
+      picture: '12rem'
      },
     container: false
   },

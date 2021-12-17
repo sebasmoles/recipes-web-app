@@ -7,7 +7,7 @@
             <div class="mb-10">
                 <h1 class="text-3xl sm:text-2xl mb-5 font-medium"> {{ recipe.title }} </h1>
                 <h2 class="text-xl sm:text-base mb-5 text-gray-500">By {{ recipe.author }} </h2>
-                <img class="mb-10 max-w-full rounded" src="../assets/test-image.jpeg" alt="Recipe Image">
+                <img class="mb-10 max-w-full rounded" :src="recipe.image" alt="Recipe Image">
                 <p class="text-xl sm:text-base" style="line-height: 2"> {{ recipe.description }} </p>            
             </div>
 
