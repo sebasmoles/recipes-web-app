@@ -1,24 +1,15 @@
 # Recipes Web App
 
-## Project setup
-```
-npm install
-```
+- Web App that displays recipes and allows you to add and store new ones.
+- It was built using [Vue CLI v4.x](https://cli.vuejs.org/), [Express.js](https://expressjs.com/), and [Tailwind CSS v2.0](https://tailwindcss.com/). 
+- It consumes both [Recipes API](https://github.com/sebasmoles/recipes-api) and [Recipes S3 Uploader](https://github.com/sebasmoles/recipes-s3).
+- It was deployed using [Heroku](https://www.heroku.com/platform).
+- Check out the [live site](https://recipes-web-app-project.herokuapp.com/).
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Version
 
-### Compiles and minifies for production
-```
-npm run build
-```
+1.0.0
 
-### Lints and fixes files
-```
-npm run lint
-```
+## License
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+This project is licensed under the MIT License
