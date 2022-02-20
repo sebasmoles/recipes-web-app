@@ -1,6 +1,6 @@
 # Recipes Web App
 
-Web app that displays recipes and allows you to add and store new ones.
+Web app that displays recipes, and allows you to add/store new ones.
 
 🚀 Visit the [live site](https://recipes-web-app-project.herokuapp.com/).
 
